@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'dir'
-                bat 'zip -r ctekUI.zip .'
+                bat 'zip -r ctekUI-1.zip .'
                 bat 'dir'
             }
         }
@@ -17,7 +17,7 @@ pipeline {
                     spec: '''{
                         "files": [
                             {
-                                "pattern": "ctekUI.zip",
+                                "pattern": "ctekUI-1.zip",
                                 "target": "npm-local/com/ui/test/"
                             }
                         ]
