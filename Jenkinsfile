@@ -30,7 +30,7 @@ pipeline {
                 script {
                     
                     // Build Docker image
-                    def dockerImageName = 'multiFront-Patch1'
+                    def dockerImageName = 'multi-front-patch1'
                     def dockerTagName = 'latest'
                     def dockerImageFullName = "shiva3021/${dockerImageName}:${dockerTagName}"
                     def dockerHubCredentials = credentials('88967ea4-894e-456c-be84-09358b139c77')
