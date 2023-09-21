@@ -1,6 +1,12 @@
 pipeline {
     agent any
 
+    environment {
+        ARTIFACT_URL = 'http://localhost:8082/artifactory/npm-local/com/ui/test/ctekUI.zip'
+        DOCKER_IMAGE_NAME = 'multi-front-image'
+        DOCKER_IMAGE_TAG = 'latest'
+    }
+
     stages {
         stage('Build') {
             steps {
@@ -23,6 +29,13 @@ pipeline {
                         ]
                     }'''
                 )
+            }
+        }
+        stage('Download Artifact') {
+            steps {
+                script {
+                    bat "curl -o ctekUI.zip ${ARTIFACT_URL}"
+                }
             }
         }
         stage('docker image build and push'){
