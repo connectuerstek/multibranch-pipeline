@@ -28,8 +28,8 @@ pipeline {
         stage('docker image build and push'){
             steps {
                 script {
-                    
-                    // Build Docker image
+
+                    def server = Artifactory.server('artifactory')
                     def dockerImageName = 'multi-front-image'
                     def dockerTagName = 'latest'
                     def dockerImageFullName = "shiva3021/${dockerImageName}:${dockerTagName}"
