@@ -27,7 +27,18 @@ pipeline {
         }
         stage('Docker Build and push'){
             steps {
-                docker.buildAndPush('ctekui-1', 'latest')
+                script {
+                    def dockerImageName = 'ctekui-1-image'
+				      def dockerTagName = 'latest'
+                      def dockerImageFullName = "${dockerImageName}:${dockerTagName}"
+
+
+					  bat "docker login -u shiva3021 -p dckr_pat_LNb28VupU4jFKyJTySUd8If4XQ4"
+					  
+					  bat "docker tag ${dockerImageFullName} shiva3021/${dockerImageFullName}"
+					  
+					  bat "docker push shiva3021/${dockerImageFullName}"
+                }
             }
         }
         
