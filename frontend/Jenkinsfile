@@ -29,8 +29,8 @@ pipeline {
             steps {
                 script {
                     def dockerImageName = 'ctekui-1-image'
-				      def dockerTagName = 'latest'
-                      def dockerImageFullName = "${dockerImageName}:${dockerTagName}"
+		    def dockerTagName = 'latest'
+                    def dockerImageFullName = "${dockerImageName}:${dockerTagName}"
 
 
 					  bat "docker login -u shiva3021 -p dckr_pat_LNb28VupU4jFKyJTySUd8If4XQ4"
