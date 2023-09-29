@@ -25,6 +25,11 @@ pipeline {
                 )
             }
         }
+        stage('Docker Build and push'){
+            steps {
+                docker.buildAndPush('ctekui-1', 'latest')
+            }
+        }
         
     }
 }
