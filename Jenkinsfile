@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'dir'
-                bat 'zip -r ctekUI-1.zip .'
+                bat 'zip -r ctekUI-1.zip . -x ' 
                 bat 'dir'
             }
         }
@@ -24,7 +24,6 @@ pipeline {
                     }'''
                 )
             }
-        }
-        
+        }        
     }
 }
